@@ -23,3 +23,19 @@ Optionally, extra points are achieved if implementation:
 * performance tests are provided
 * runs in java 9 or 10
 
+Scratch algorithm
+============
+Based on school mathematics:
+
+   1234
+   *
+   5678
+   ~~~~
+   9872 = 1234x8;
+  8638  = 1234x7;
+ 7404   = 1234x6;
+6170    = 1234x5;
+~~~~~~~
+7006652
+
+

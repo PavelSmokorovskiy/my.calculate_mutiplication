@@ -7,11 +7,11 @@ import java.math.BigInteger;
 public class CalculatorSimpleAlgorithmImpl implements Calculator {
 
     @Override
-    public BigInteger multiply(String firstNumber, String secondNumber) {
+    public String multiply(String firstNumber, String secondNumber) {
 
         BigInteger firstIntNumber = new BigInteger(firstNumber);
         BigInteger secondIntNumber = new BigInteger(secondNumber);
 
-        return firstIntNumber.multiply(secondIntNumber);
+        return firstIntNumber.multiply(secondIntNumber).toString();
     }
 }

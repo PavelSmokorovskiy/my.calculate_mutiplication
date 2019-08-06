@@ -6,8 +6,6 @@ import mutiplication.service.impl.CalculatorScratchAlgorithmImpl;
 import mutiplication.service.impl.CalculatorSimpleAlgorithmImpl;
 import mutiplication.service.impl.ConsoleScannerImpl;
 
-import java.math.BigInteger;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,13 +23,15 @@ public class Main {
     }
 
     private void run() {
-        String firstLine = consoleScanner.getConsoleInput();
-        String secondLine = consoleScanner.getConsoleInput();
-        logger.log(Level.INFO, firstLine);
-        logger.log(Level.INFO, secondLine);
+        String lineFirst = consoleScanner.getConsoleInput();
+        String lineSecond = consoleScanner.getConsoleInput();
+        logger.log(Level.INFO, lineFirst);
+        logger.log(Level.INFO, lineSecond);
 
-        BigInteger res = calculatorSimpleAlgorithm.multiply(firstLine, secondLine);
-        System.out.println(res);
+        String res1 = calculatorSimpleAlgorithm.multiply(lineFirst, lineSecond);
+        String res2 = calculatorScratchAlgorithm.multiply(lineFirst, lineSecond);
+        logger.log(Level.INFO, res1);
+        logger.log(Level.INFO, res2);
 
     }
 }
