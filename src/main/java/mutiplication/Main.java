@@ -1,5 +1,11 @@
 package mutiplication;
 
+import mutiplication.service.Calculator;
+import mutiplication.service.ConsoleScanner;
+import mutiplication.service.impl.CalculatorScratchAlgorithmImpl;
+import mutiplication.service.impl.CalculatorSimpleAlgorithmImpl;
+import mutiplication.service.impl.ConsoleScannerImpl;
+
 import java.math.BigInteger;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -9,32 +15,23 @@ public class Main {
 
     private Logger logger = Logger.getLogger(Main.class.getName());
 
+    private ConsoleScanner consoleScanner = new ConsoleScannerImpl();
+    private Calculator calculatorSimpleAlgorithm = new CalculatorSimpleAlgorithmImpl();
+    private Calculator calculatorScratchAlgorithm = new CalculatorScratchAlgorithmImpl();
+
     public static void main(String[] args) {
 
         new Main().run();
     }
 
     private void run() {
-        String firstNumber = getConsoleInput();
-        String secondNumber = getConsoleInput();
-        logger.log(Level.INFO, firstNumber);
-        logger.log(Level.INFO, secondNumber);
+        String firstLine = consoleScanner.getConsoleInput();
+        String secondLine = consoleScanner.getConsoleInput();
+        logger.log(Level.INFO, firstLine);
+        logger.log(Level.INFO, secondLine);
 
-        System.out.println(multiply(firstNumber, secondNumber));
+        BigInteger res = calculatorSimpleAlgorithm.multiply(firstLine, secondLine);
+        System.out.println(res);
 
-    }
-
-    private String getConsoleInput() {
-
-        Scanner in = new Scanner(System.in);
-        return in.nextLine();
-    }
-
-    private BigInteger multiply(String firstNumber, String secondNumber) {
-
-        BigInteger firstIntNumber = new BigInteger(firstNumber);
-        BigInteger secondIntNumber = new BigInteger(secondNumber);
-
-        return firstIntNumber.multiply(secondIntNumber);
     }
 }
