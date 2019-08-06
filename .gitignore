@@ -1,3 +1,8 @@
+
+# Idea: ~/.gitignore_global
+.DS_Store
+.idea/
+
 # Compiled class file
 *.class
 
