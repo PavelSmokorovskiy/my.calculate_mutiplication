@@ -3,6 +3,13 @@
 .DS_Store
 .idea/
 
+# Gradle
+.gradle/
+gradle/
+gradlew
+gradlew.bat
+settings.gradle
+
 # Compiled class file
 *.class
 

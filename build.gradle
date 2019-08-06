@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+}
+
+group 'calculate_mutiplication'
+version 'latest'
+
+sourceCompatibility = 12
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
