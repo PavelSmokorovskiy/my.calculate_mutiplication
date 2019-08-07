@@ -6,32 +6,50 @@ import mutiplication.service.impl.CalculatorScratchAlgorithmImpl;
 import mutiplication.service.impl.CalculatorSimpleAlgorithmImpl;
 import mutiplication.service.impl.ConsoleScannerImpl;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import static java.lang.System.out;
 
 public class Main {
-
-    private Logger logger = Logger.getLogger(Main.class.getName());
 
     private ConsoleScanner consoleScanner = new ConsoleScannerImpl();
     private Calculator calculatorSimpleAlgorithm = new CalculatorSimpleAlgorithmImpl();
     private Calculator calculatorScratchAlgorithm = new CalculatorScratchAlgorithmImpl();
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
 
-        new Main().run();
+        String result = "";
+        if (args.length >= 3) {
+            String lineFirst = args[1];
+            String lineSecond = args[2];
+            switch (args[0]) {
+                case "--alg1":
+                    result = new Main().runSimpleAlgorithmCase(lineFirst, lineSecond);
+                    break;
+                case "--alg2":
+                    result = new Main().runScratchAlgorithmCase(lineFirst, lineSecond);
+                    break;
+                default:
+                    result = new Main().runConsoleInputCase();
+                    break;
+            }
+        } else result = new Main().runConsoleInputCase();
+
+        out.println(result);
     }
 
-    private void run() {
+    private String runSimpleAlgorithmCase(String lineFirst, String lineSecond) {
+
+        return calculatorSimpleAlgorithm.multiply(lineFirst, lineSecond);
+    }
+
+    private String runScratchAlgorithmCase(String lineFirst, String lineSecond) {
+
+        return calculatorScratchAlgorithm.multiply(lineFirst, lineSecond);
+    }
+
+    private String runConsoleInputCase() {
+
         String lineFirst = consoleScanner.getConsoleInput();
         String lineSecond = consoleScanner.getConsoleInput();
-        logger.log(Level.INFO, lineFirst);
-        logger.log(Level.INFO, lineSecond);
-
-        String res1 = calculatorSimpleAlgorithm.multiply(lineFirst, lineSecond);
-        String res2 = calculatorScratchAlgorithm.multiply(lineFirst, lineSecond);
-        logger.log(Level.INFO, res1);
-        logger.log(Level.INFO, res2);
-
+        return calculatorScratchAlgorithm.multiply(lineFirst, lineSecond);
     }
 }

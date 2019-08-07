@@ -20,7 +20,7 @@ public class ConsoleScannerImpl implements ConsoleScanner {
             }
             number = scanner.nextLine();
         } catch (NumberFormatException exception) {
-            logger.log(Level.WARNING, scanner.nextLine() + " wrong number");
+            logger.log(Level.WARNING, scanner.nextLine() + ": wrong number");
             scanner.close();
             System.exit(0);
         }
